@@ -19,6 +19,13 @@
                                     @endif
                                 </div>
                                 <div class="mb-3">
+                                    <label for="profile" class="form-label">profile</label>
+                                    <input placeholder="xxx" type="file" class="form-control" id="profile" name="profile" require autofocus>
+                                    @if ($errors->has('profile'))
+                                        <span class="text-danger">{{ $errors->first('profile') }}</span>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
                                     <label for="password" class="form-label">Mật khẩu</label>
                                     <input placeholder="xxx" type="password" class="form-control" id="password" name="password" require autofocus>
                                     @if ($errors->has('password'))

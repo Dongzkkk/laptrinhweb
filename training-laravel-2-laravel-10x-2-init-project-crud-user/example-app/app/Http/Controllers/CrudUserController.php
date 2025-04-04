@@ -62,12 +62,13 @@ class CrudUserController extends Controller
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            'confirm-password' =>'required|same:password',
+            'confirm-password' =>'required|same:password', 
         ]);
 
         $data = $request->all();
         $check = User::create([
             'username' => $data['username'],
+            'profile' => $data['profile'],
             'email' => $data['email'],
             'password' => FacadesHash::make($data['password'])
         ]);
@@ -122,6 +123,8 @@ class CrudUserController extends Controller
 
        $user = User::find($input['id']);
        $user->username = $input['username'];
+       $user->profile = $input['profile'];
+
        $user->email = $input['email'];
        $user->password = $input['password'];
        $user->save();
