@@ -53,7 +53,7 @@
                                     @endif
                                 </div>
                                 <div class="mb-3 d-flex justify-content-end gap-3">
-                                    <a href="{{ url('/exe/exe1/login') }}" class="btn btn-secondary">Đã có tài khoản</a>
+                                    <a href="{{ url('/exe/exe1/login') }}" class="btn ">Đã có tài khoản</a>
                                     <button type="submit" class="btn btn-primary">Đăng ký</button>
                                 </div>
                             </form>
