@@ -16,7 +16,8 @@ class RoleSeeder extends Seeder
     {
             DB::table('roles')->insert([
                 [
-                    'name' => 'admin',
+                    'role_name' => 'admin',
+                    'role_desc' => 'this is a desc',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ],
@@ -24,21 +25,24 @@ class RoleSeeder extends Seeder
 
         DB::table('roles')->insert([
             [
-                'name' => 'manager',
+                'role_name' => 'manager',
+                'role_desc' => 'this is a desc',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
         ]);
         DB::table('roles')->insert([
             [
-                'name' => 'leader',
+                'role_name' => 'leader',
+                'role_desc' => 'this is a desc',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
         ]);
         DB::table('roles')->insert([
             [
-                'name' => 'member',
+                'role_name' => 'member',
+                'role_desc' => 'this is a desc',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

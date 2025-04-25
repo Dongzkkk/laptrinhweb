@@ -34,7 +34,7 @@
      </main>
     <div class="footer position-sticky bottom-0">
         <div class="container">
-            <p class="text-center py-3 border border-dark">Copyright © 2025</p>
+            <p class="text-center py-3 border border-dark bg-white">Copyright © 2025</p>
         </div>
     </div>
 </body>

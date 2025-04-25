@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Hash;
 use Session;
 use App\Models\User;
-use Illuminate\Contracts\Session\Session as SessionSession;
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash as FacadesHash;
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Session as FacadesSession;
  */
 class CrudUserController extends Controller
 {
-
+ const MAX_RECORDS = 10;
     /**
      * Login page
      */
@@ -141,8 +141,9 @@ class CrudUserController extends Controller
     public function listUser()
     {
         if(Auth::check()){
-            $users = User::all();
-            return view('exe.exe1.list', ['users' => $users]);
+            $users = User::paginate(self::MAX_RECORDS);
+            $data = ['users' => $users];
+            return view('exe.exe1.list', $data);
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');
@@ -154,7 +155,6 @@ class CrudUserController extends Controller
     public function signOut() {
         FacadesSession::flush();
         Auth::logout();
-
         return Redirect('login');
     }
 }

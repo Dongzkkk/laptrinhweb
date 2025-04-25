@@ -16,7 +16,7 @@ class UserRoleSeeder extends Seeder
     public function run(): void
     {
         for ($i = 1; $i < self::MAX_RECORDS; $i++) {
-            DB::table('user_role')->insert([
+            DB::table('user_roles')->insert([
                 [
                         'user_id' => $i,
                         'role_id' => rand(1,4),

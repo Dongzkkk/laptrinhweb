@@ -13,15 +13,31 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>name</th>
+                                    <th>Role</th>
+                                    <th>Order</th>
                                     <th>Email</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            {{-- <tbody>
+                            <tbody>
                                 @foreach($users as $user)
                                 <tr>
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
+                                    <td>
+                                        @foreach($user->roles as $role)
+                                        <a href="{{ route('user.role', ['id' => $role->id]) }}">
+                                            {{ $role->role_name . '-' }}
+                                        </a>
+                                    @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach($user->Orders as $order)
+                                        <a href="{{ route('user.order', ['id' => $order->id]) }}">
+                                            {{ $order->id . '-' }}
+                                        </a>
+                                    @endforeach
+                                    </td>
                                     <td>{{ $user->email }}</td>
                                     <td>
                                         <a href="{{ route('user.updateUser', ['id' => $user->id]) }}" class="btn btn-primary">Edit</a>
@@ -30,8 +46,9 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                            </tbody> --}}
+                            </tbody>
                         </table>
+                        {!! $users->withQueryString()->links('pagination::bootstrap-5') !!}
                     </div>
                 </div>
             </div>
